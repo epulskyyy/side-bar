@@ -1,0 +1,34 @@
+.icon-side-bar {
+  display: flex;
+  margin: 3px;
+  &_1 {
+    height: 100%;
+    &_box-1 {
+      width: 7.5px;
+      height: 9.5px;
+      margin-bottom: 2.5px;
+      background-color: white;
+    }
+    &_box-2 {
+      width: 7.5px;
+      height: 5.5px;
+      background-color: white;
+    }
+  }
+  &_2 {
+    margin-left: 2.5px;
+    height: 100%;
+    float: right;
+    &_box-1 {
+      width: 7.5px;
+      margin-bottom: 2.5px;
+      height: 5.5px;
+      background-color: white;
+    }
+    &_box-2 {
+      width: 7.5px;
+      height: 9.5px;
+      background-color: white;
+    }
+  }
+}

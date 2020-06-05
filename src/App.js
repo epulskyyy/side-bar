@@ -1,44 +1,27 @@
-import React, { Component } from 'react';
-import Toolbar from './components/Toolbar/Toolbar';
-import SideDrawer from './components/SideDrawwer/SideDrawer';
-import BackDrop from './components/BackDrop/BackDrop';
-import ActionContext from './Context/ActionContext';
-class App extends Component {
-  state = {
-    sideDrawerOpen: false,
-  };
-  drawwerToggleClickHandler = () => {
-    this.setState((prevState) => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen };
-    });
-  };
-  backDropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false });
-  };
-  render() {
-    let backDrop;
-    if (this.state.sideDrawerOpen) {
-      backDrop = <BackDrop />;
-    }
-    return (
-      <ActionContext.Provider
-        value={{
-          clickToggle: this.drawwerToggleClickHandler,
-          clickBackDrop: this.backDropClickHandler,
-          show: this.state.sideDrawerOpen,
-        }}
-      >
-        <div style={{ height: '100%' }}>
-          <Toolbar />
-          <SideDrawer />
-          {backDrop}
-          <main style={{ marginTop: '65px' }}>
-            <p>This is page</p>
-          </main>
-        </div>
-      </ActionContext.Provider>
-    );
-  }
+import React from 'react';
+import { Router, Switch, Route } from 'react-router-dom';
+import { history } from './history';
+import Home from './components/dashboard/Home';
+import InfoSaldo from './components/infoSaldo/InfoSaldo';
+import InfoMutasi from './components/infoMutasi/InfoMutasi';
+import Login from './components/auth/Login';
+import PageNotFound from './components/page404';
+function App() {
+  return (
+    <Router history={history}>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <Route exact path="/" component={Home} />
+        <Route path="/infosaldo" component={InfoSaldo} />
+        <Route path="/infomutasi" component={InfoMutasi} />
+        <Route
+          render={() => {
+            return <PageNotFound />;
+          }}
+        />
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;

@@ -1,0 +1,244 @@
+.col {
+  padding-right: 0;
+  padding-left: 260px;
+
+  .content {
+    &_main {
+      height: 100%;
+      padding: 40px;
+
+      &_header {
+        margin-bottom: 32px;
+
+        h5 {
+          font-size: 24px;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.33;
+          letter-spacing: normal;
+          color: var(--dark-grey);
+        }
+      }
+    }
+    &_body {
+      overflow: hidden;
+      .slider {
+        display: flex;
+        transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+      }
+      .body-content {
+        display: block;
+        flex: 1 0 auto;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 32px;
+    display: flex;
+    list-style: none;
+    width: 100%;
+    height: 48px;
+    box-shadow: inset 0 -1px 0 0 var(--light-blue-grey);
+  }
+
+  li {
+    position: relative;
+    height: 48px;
+    margin-right: 24px;
+    z-index: 100;
+  }
+
+  li.item-link {
+    display: block;
+    height: 100%;
+  }
+
+  li.item-link::before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    box-shadow: inset 0 -2px 0 0 var(--clear-blue);
+    transform: scaleX(0);
+    position: absolute;
+  }
+
+  li.item-link:hover {
+    &::before {
+      transform: scale(1);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  li a:hover,
+  li a:focus {
+    transition: all 0.3s ease-in-out;
+    color: var(--dark-grey);
+  }
+
+  li a {
+    color: var(--grey-link);
+  }
+
+  li.active {
+    box-shadow: inset 0 -2px 0 0 var(--clear-blue);
+    transition: all 0.3s ease-in-out;
+  }
+
+  li.active a {
+    color: var(--dark-grey);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .card {
+    margin-top: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 32px;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px 0 rgba(205, 216, 228, 0.5);
+    border: solid 1px var(--light-blue-grey);
+
+    &_header {
+      width: 100%;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 1px 0 0 var(--light-blue-grey);
+
+      h5 {
+        width: 123px;
+        height: 22px;
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.38;
+        letter-spacing: normal;
+        color: var(--dark-grey);
+        text-transform: capitalize;
+        margin: 0;
+      }
+
+      .space {
+        flex: 1;
+      }
+
+      .btn {
+        padding: 0;
+
+        &_header {
+          font-size: 13px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.38;
+          letter-spacing: normal;
+          text-align: right;
+          color: var(--clear-blue);
+        }
+
+        svg.icon {
+          width: 18px;
+          height: 18px;
+          padding: 4px;
+          margin-left: 4px;
+        }
+      }
+
+      .btn:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.card-body {
+  padding: 0;
+  margin-top: 30px;
+}
+
+.line {
+  width: 100%;
+  height: 62px;
+  margin-top: -20px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 0 0 var(--light-blue-grey);
+}
+@media (max-width: 415px) {
+  .line {
+    flex-direction: column;
+    .select {
+      margin: 0;
+    }
+  }
+}
+@media (max-width: 615px) {
+  .info-saldo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.info-saldo {
+  margin-bottom: 40px;
+  padding-left: 24px;
+
+  h5 {
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+  }
+
+  .text-money {
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: normal;
+
+    &_desc {
+      display: flex;
+      align-items: center;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .icon {
+    margin-right: 8px;
+  }
+}
